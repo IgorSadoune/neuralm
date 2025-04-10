@@ -172,7 +172,7 @@ If you use this software in your work, please cite neuralm:
 @software{neuralm,
   author = {Sadoune, Igor},
   title = {NeuralM: A Neural Network Model Builder},
-  year = {2023},
+  year = {2025},
   url = {https://github.com/IgorSadoune/neuralm},
   version = {0.1.0},
   publisher = {GitHub},
