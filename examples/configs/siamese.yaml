@@ -1,0 +1,46 @@
+model_type: siamese
+name: SiameseNetwork
+shared_layers:
+  - type: conv2d
+    in_channels: 1
+    out_channels: 64
+    kernel_size: 10
+  - type: relu
+    inplace: true
+  - type: maxpool2d
+    kernel_size: 2
+  - type: conv2d
+    in_channels: 64
+    out_channels: 128
+    kernel_size: 7
+  - type: relu
+    inplace: true
+  - type: maxpool2d
+    kernel_size: 2
+  - type: conv2d
+    in_channels: 128
+    out_channels: 128
+    kernel_size: 4
+  - type: relu
+    inplace: true
+  - type: maxpool2d
+    kernel_size: 2
+  - type: conv2d
+    in_channels: 128
+    out_channels: 256
+    kernel_size: 4
+  - type: relu
+    inplace: true
+  - type: flatten
+  - type: linear
+    in_features: 9216  # Depends on input size
+    out_features: 4096
+  - type: sigmoid
+head_layers:
+  - type: linear
+    in_features: 4096
+    out_features: 1024
+  - type: relu
+  - type: linear
+    in_features: 1024
+    out_features: 128

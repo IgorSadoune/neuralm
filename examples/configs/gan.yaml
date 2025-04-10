@@ -1,0 +1,32 @@
+model_type: gan
+name: MNIST_GAN
+latent_size: 100
+generator_layers:
+  - type: linear
+    in_features: 100
+    out_features: 256
+    is_first: true
+  - type: relu
+  - type: linear
+    in_features: 256
+    out_features: 512
+  - type: relu
+  - type: linear
+    in_features: 512
+    out_features: 784
+  - type: sigmoid
+discriminator_layers:
+  - type: linear
+    in_features: 784
+    out_features: 512
+  - type: leakyrelu
+    negative_slope: 0.2
+  - type: linear
+    in_features: 512
+    out_features: 256
+  - type: leakyrelu
+    negative_slope: 0.2
+  - type: linear
+    in_features: 256
+    out_features: 1
+  - type: sigmoid

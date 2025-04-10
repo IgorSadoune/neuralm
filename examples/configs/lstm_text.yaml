@@ -1,0 +1,26 @@
+model_type: lstm
+name: TextLSTM
+input_size: 300
+hidden_size: 256
+num_layers: 2
+bidirectional: true
+batch_first: true
+dropout: 0.2
+layers:
+  - type: embedding
+    num_embeddings: 10000
+    embedding_dim: 300
+  - type: lstm
+    input_size: 300
+    hidden_size: 256
+    num_layers: 2
+    bidirectional: true
+    batch_first: true
+    dropout: 0.2
+  - type: linear
+    in_features: 512  # 256 * 2 (bidirectional)
+    out_features: 128
+  - type: relu
+  - type: linear
+    in_features: 128
+    out_features: 5  # 5 classes

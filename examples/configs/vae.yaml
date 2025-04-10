@@ -1,0 +1,21 @@
+model_type: vae
+name: VariationalAutoencoder
+input_size: 784
+latent_size: 20
+encoder_layers:
+  - type: linear
+    in_features: 784
+    out_features: 400
+  - type: relu
+  - type: linear
+    in_features: 400
+    out_features: 20
+decoder_layers:
+  - type: linear
+    in_features: 20
+    out_features: 400
+  - type: relu
+  - type: linear
+    in_features: 400
+    out_features: 784
+  - type: sigmoid
