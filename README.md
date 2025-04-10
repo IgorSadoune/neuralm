@@ -1,6 +1,6 @@
 # Neural Machines (neuralm)
 
-`neuralm` is a Python/PyTorch package that generates PyTorch models from YAML configuration files. It focuses on neural architecture modeling, allowing users to create various types of PyTorch models without writing boilerplate code. The resulting Pytorch models can be translated into ONNX format for deployment or interoperability with other frameworks. 
+`neuralm` is a Python/PyTorch package that generates PyTorch models from YAML configuration files. It focuses on neural architecture modeling, allowing users to create various types of PyTorch models without writing boilerplate code. The resulting Pytorch models can be translated into ONNX format for deployment or interoperability with other frameworks. In the era of agentic-AI, and vibe coding, this package can be used to streamline coding operations, and make things easier for human researchers and practicioners. It is also a good tool for learning neural networks. 
 
 ## Table of Contents
 - [Installation](#installation)
