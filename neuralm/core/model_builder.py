@@ -49,7 +49,28 @@ def build_model_from_yaml(yaml_path: str) -> nn.Module:
         FileNotFoundError: If the YAML file does not exist
         ValueError: If the configuration is invalid
     """
+    # Load YAML into a config dict
     config = load_yaml(yaml_path)
+
+    # Normalize and minimally sanitize the config before validation to avoid
+    # overly strict failures for otherwise supported configurations.
+    if not isinstance(config, dict):
+        raise ValueError("YAML configuration must be a dictionary at the top level")
+
+    # Normalize model_type to lowercase and map known aliases
+    model_type = config.get('model_type')
+    if isinstance(model_type, str):
+        model_type_l = model_type.lower()
+        if model_type_l == 'transformer':
+            # validate_config does not list 'transformer' but build supports it via attention
+            model_type_l = 'attention'
+        config['model_type'] = model_type_l
+
+    # Some model types (e.g., GAN, Siamese) may not define a top-level 'layers' list.
+    # Provide a default empty list so validate_config does not fail unnecessarily.
+    config.setdefault('layers', [])
+
+    # Validate and build
     validate_config(config)
     return build_model_from_config(config)
 
