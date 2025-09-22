@@ -5,7 +5,7 @@ or Python dictionaries. It simplifies the process of creating complex neural net
 architectures by allowing users to define models declaratively.
 """
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 from neuralm.core.model_builder import build_model_from_yaml, build_model_from_config
 

@@ -118,7 +118,7 @@ def _build_sequential_model(config: Dict[str, Any]) -> nn.Module:
     Build a sequential model.
     
     Args:
-        config: Dictionary containing the model configuration
+        config: Dictiory containing the model configuration
         
     Returns:
         Sequential PyTorch model
